@@ -1,1 +1,0 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/MyPlace.dir/link.d CMakeFiles/MyPlace.dir/main.c.o CMakeFiles/MyPlace.dir/3rd_party/glad/src/glad.c.o -o MyPlace  /usr/lib/libGL.so /usr/lib/libglfw.so.3.4
