@@ -1,0 +1,3 @@
+/home/flyti/dev/myplace/build/CMakeFiles/MyPlace.dir
+/home/flyti/dev/myplace/build/CMakeFiles/edit_cache.dir
+/home/flyti/dev/myplace/build/CMakeFiles/rebuild_cache.dir
