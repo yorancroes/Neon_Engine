@@ -1,17 +1,23 @@
-# Set the minimum CMake version and project name
 cmake_minimum_required(VERSION 3.10)
+
 project(MyPlace)
 
-# Set the C standard
-set(CMAKE_C_STANDARD 11)
+# Add the src and glad directories to the include path
+include_directories(${PROJECT_SOURCE_DIR}/src)
+include_directories(${PROJECT_SOURCE_DIR}/3rd_party/glad/include)  # Correct path to glad headers
 
-# Add the executable
-add_executable(MyPlace main.c 3rd_party/glad/src/glad.c)
+# Automatically add all .c files in the src directory
+file(GLOB SOURCES "src/*.c")
 
-# Find required libraries
+# Add glad.c to the list of source files
+list(APPEND SOURCES "${PROJECT_SOURCE_DIR}/3rd_party/glad/src/glad.c")
+
+# Create the executable from all the source files
+add_executable(MyPlace ${SOURCES})
+
+# Link with OpenGL and GLFW libraries
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 
-# Link the libraries
-target_include_directories(MyPlace PRIVATE 3rd_party/glad/include)
-target_link_libraries(MyPlace PRIVATE OpenGL::GL glfw)
+target_link_libraries(MyPlace OpenGL::GL glfw)
+
